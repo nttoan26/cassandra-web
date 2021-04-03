@@ -6,9 +6,9 @@ RUN cd /go/src/ && git clone https://github.com/nttoan26/cassandra-web.git
 RUN cd /go/src/cassandra-web/client && npm i && npm run build
 
 # build server stage
-FROM golang:1.16-alpine AS build-server-env
+FROM golang:latest AS build-server-env
 
-RUN apk add --no-cache git
+# RUN apk add --no-cache git
 
 RUN cd /go/src/ && git clone https://github.com/nttoan26/cassandra-web.git
 

@@ -1,6 +1,10 @@
 # cassandra-web
 
-Fork from https://github.com/orzhaha/cassandra-web but allow deploying behind reverse proxy (e.g Kong API gateway) at specific context path (e.g /cassandra-web/) and some style modifications
+Fork from https://github.com/orzhaha/cassandra-web with following modidications:
+- Allow deploying behind reverse proxy (e.g Kong API gateway) at specific context path (e.g /cassandra-web/)
+- Fix bug "could not resolve host github.com" when using Docker on MacOS
+- Incorrect client dist directory
+- Some style modifications
 ## Demo
 ![index](webui.gif)
 
