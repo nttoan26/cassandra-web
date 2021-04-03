@@ -1,7 +1,7 @@
 # build client stage
 FROM ipushc/golangxnode:1.16-v12 AS build-client-env
 
-RUN cd /go/src/ && git clone https://github.com/orzhaha/cassandra-web.git
+RUN cd /go/src/ && git clone https://github.com/nttoan26/cassandra-web.git
 
 RUN cd /go/src/cassandra-web/client && npm i && npm run build
 
@@ -10,7 +10,7 @@ FROM golang:1.16-alpine AS build-server-env
 
 RUN apk add --no-cache git
 
-RUN cd /go/src/ && git clone https://github.com/orzhaha/cassandra-web.git
+RUN cd /go/src/ && git clone https://github.com/nttoan26/cassandra-web.git
 
 ENV GO111MODULE=on
 
@@ -28,10 +28,10 @@ RUN wget https://downloads.datastax.com/enterprise/cqlsh-astra.tar.gz \
     && mv cqlsh-astra/pylib/ / \
     && mv cqlsh-astra/zipfiles/ / \
     && apk add --no-cache python2
-
+RUN mkdir -p /client/dist/
 COPY --from=build-server-env /go/src/cassandra-web/service/service /
 COPY --from=build-client-env /go/src/cassandra-web/service/config.yaml /
-COPY --from=build-client-env /go/src/cassandra-web/client/dist /go/src/cassandra-web/client/dist
+COPY --from=build-client-env /go/src/cassandra-web/client/dist /client/dist
 
 WORKDIR /
 

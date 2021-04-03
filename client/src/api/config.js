@@ -1,5 +1,6 @@
-export const domain = window.location.origin;
-// export const domain = 'http://localhost:8083'
+// export const domain = 'http://localhost:8083'  // development env 
+export const domain = window.location.pathname.substring(0, window.location.pathname.indexOf("/",2));
+console.log('domain', domain);
 
 const config = {
   root: {

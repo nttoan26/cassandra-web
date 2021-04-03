@@ -1,5 +1,6 @@
 # cassandra-web
 
+Fork from https://github.com/orzhaha/cassandra-web but allow deploying behind reverse proxy (e.g Kong API gateway) at specific context path (e.g /cassandra-web/) and some style modifications
 ## Demo
 ![index](webui.gif)
 
@@ -59,12 +60,12 @@ cqlsh
 ## Docker
 
 ```sh
-docker pull ipushc/cassandra-web
+docker pull nttoan26/cassandra-web
 ```
 ##### Environment
 
 * HOST_PORT: ":80"
-* CASSANDRA_HOST: cassandra host
+* CASSANDRA_HOST: cassandra
 * CASSANDRA_PORT: 9042
 * CASSANDRA_USERNAME: username
 * CASSANDRA_PASSWORD: password
